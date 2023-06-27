@@ -21,11 +21,63 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `body {
-    background: rgb(45, 135, 245);
-    color: rgb(235, 246, 246);
+___CSS_LOADER_EXPORT___.push([module.id, `.container {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,yBAAyB;AAC7B","sourcesContent":["body {\n    background: rgb(45, 135, 245);\n    color: rgb(235, 246, 246);\n}\n"],"sourceRoot":""}]);
+
+.header {
+}
+
+.page-title {
+}
+
+.main {
+}
+
+.scores-section {
+}
+
+.scores__header {
+}
+
+.scores__title {
+}
+
+.scores__refresh-btn {
+}
+
+.scores__table {
+}
+
+.scores__table__row {
+}
+
+.scores__table__row__name {
+}
+
+.scores__table__row__score {
+}
+
+.add-score-section {
+}
+
+.add-score__title {
+}
+
+.add-score__form {
+}
+
+.add-score__form__label {
+}
+
+.add-score__form__input {
+}
+
+.add-score__form__btn {
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,cAAc;EACd,kBAAkB;AACpB;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA","sourcesContent":[".container {\n  max-width: 60rem;\n  margin: 0 auto;\n  padding: 3rem 1rem;\n}\n\n.header {\n}\n\n.page-title {\n}\n\n.main {\n}\n\n.scores-section {\n}\n\n.scores__header {\n}\n\n.scores__title {\n}\n\n.scores__refresh-btn {\n}\n\n.scores__table {\n}\n\n.scores__table__row {\n}\n\n.scores__table__row__name {\n}\n\n.scores__table__row__score {\n}\n\n.add-score-section {\n}\n\n.add-score__title {\n}\n\n.add-score__form {\n}\n\n.add-score__form__label {\n}\n\n.add-score__form__input {\n}\n\n.add-score__form__btn {\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -711,6 +763,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_reset_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/reset.css */ "./src/styles/reset.css");
 /* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
+
 
 
 })();

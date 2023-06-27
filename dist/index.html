@@ -1,12 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello Webpack!</title>
-<script defer src="main.js"></script></head>
-<body>
-    <h1>Hello Webpack!</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="page-title">Leaderboard</h1>
+      </div>
+    </header>
+    <main class="main">
+      <div class="container">
+        <section class="scores-section">
+          <div class="scores__header">
+            <h2 class="scores__title">Recent Scores</h2>
+            <button class="scores__refresh-btn">Refresh</button>
+          </div>
+          <div class="scores__table">
+            <div class="scores__table__row">
+              <span class="scores__table__row__name">Name</span>
+              <span class="scores__table__row__score">100</span>
+            </div>
+            <div class="scores__table__row">
+              <span class="scores__table__row__name">Name</span>
+              <span class="scores__table__row__score">20</span>
+            </div>
+            <div class="scores__table__row">
+              <span class="scores__table__row__name">Name</span>
+              <span class="scores__table__row__score">50</span>
+            </div>
+            <div class="scores__table__row">
+              <span class="scores__table__row__name">Name</span>
+              <span class="scores__table__row__score">78</span>
+            </div>
+            <div class="scores__table__row">
+              <span class="scores__table__row__name">Name</span>
+              <span class="scores__table__row__score">125</span>
+            </div>
+            <div class="scores__table__row">
+              <span class="scores__table__row__name">Name</span>
+              <span class="scores__table__row__score">77</span>
+            </div>
+            <div class="scores__table__row">
+              <span class="scores__table__row__name">Name</span>
+              <span class="scores__table__row__score">42</span>
+            </div>
+          </div>
+        </section>
+        <section class="add-score-section">
+          <h2 class="add-score__title">Add your score</h2>
+          <form class="add-score__form">
+            <div>
+              <input
+                class="add-score__form__input"
+                type="text"
+                id="name"
+                name="name"
+              />
+              <label class="add-score__form__label" for="name">
+                Your name
+              </label>
+            </div>
+            <div>
+              <input
+                class="add-score__form__input"
+                type="text"
+                id="score"
+                name="score"
+              />
+              <label class="add-score__form__label" for="score">
+                Your score
+              </label>
+            </div>
+            <button class="add-score__form__btn" type="submit">Submit</button>
+          </form>
+        </section>
+      </div>
+    </main>
+  </body>
 </html>

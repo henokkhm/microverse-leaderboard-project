@@ -1,4 +1,56 @@
-body {
-  background: rgb(45, 135, 245);
-  color: rgb(235, 246, 246);
+.container {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.header {
+}
+
+.page-title {
+}
+
+.main {
+}
+
+.scores-section {
+}
+
+.scores__header {
+}
+
+.scores__title {
+}
+
+.scores__refresh-btn {
+}
+
+.scores__table {
+}
+
+.scores__table__row {
+}
+
+.scores__table__row__name {
+}
+
+.scores__table__row__score {
+}
+
+.add-score-section {
+}
+
+.add-score__title {
+}
+
+.add-score__form {
+}
+
+.add-score__form__label {
+}
+
+.add-score__form__input {
+}
+
+.add-score__form__btn {
 }
