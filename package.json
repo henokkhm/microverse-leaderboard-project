@@ -1,0 +1,44 @@
+{
+  "name": "webpack-template",
+  "version": "1.0.0",
+  "description": "a Webpack template which can be used as a starting point for Microverse projects",
+  "main": "index.js",
+  "scripts": {
+    "lint": "hint . && npx stylelint \"**/*.{css,scss}\" && eslint .",
+    "build": "webpack",
+    "dev": "webpack serve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henokkhm/microverse-webpack-boilerplate.git"
+  },
+  "keywords": [
+    "webpack",
+    "boilerplate",
+    "template",
+    "microverse"
+  ],
+  "author": "Henok Kirubel Hailemariam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henokkhm/microverse-webpack-boilerplate/issues"
+  },
+  "homepage": "https://github.com/henokkhm/microverse-webpack-boilerplate#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "css-loader": "^6.8.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.27.5",
+    "hint": "^7.1.9",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.21.0",
+    "webpack": "^5.87.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
