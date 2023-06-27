@@ -21,63 +21,117 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.container {
+___CSS_LOADER_EXPORT___.push([module.id, `body {
+  font-family: sans-serif;
+}
+
+button {
+  background-color: rgb(246, 250, 253);
+  padding: 0.25rem 1rem;
+  border: 4px solid #000;
+  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1);
+  width: max-content;
+  font-weight: 900;
+  font-size: 18px;
+  transition: all 200ms ease-in-out;
+}
+
+button:active {
+  transform: translateY(3px);
+}
+
+.container {
   max-width: 60rem;
   margin: 0 auto;
-  padding: 3rem 1rem;
+  padding: 0 1rem;
 }
 
 .header {
+  padding: 2rem 0;
 }
 
 .page-title {
+  font-size: 4rem;
 }
 
-.main {
+.main .container {
+  display: flex;
+  gap: 4rem;
 }
 
 .scores-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 44rem;
+  width: 65vw;
 }
 
 .scores__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-width: max-content;
 }
 
 .scores__title {
+  font-size: 2rem;
 }
 
-.scores__refresh-btn {
+.scores__refresh-btn:hover {
+  background-color: rgb(251, 180, 110);
 }
 
 .scores__table {
+  border: 4px solid #000;
 }
 
 .scores__table__row {
+  padding: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.0625rem;
 }
 
-.scores__table__row__name {
-}
-
-.scores__table__row__score {
+.scores__table__row:nth-child(even) {
+  background-color: #ddd;
 }
 
 .add-score-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .add-score__title {
+  font-size: 2rem;
 }
 
 .add-score__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 40rem;
 }
 
 .add-score__form__label {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.25rem;
+  background-color: #fff;
 }
 
 .add-score__form__input {
+  border: 4px solid #000;
+  padding: 0.5rem;
+  min-width: 20rem;
 }
 
-.add-score__form__btn {
+.add-score__form__btn:hover {
+  background-color: rgb(135, 237, 121);
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,cAAc;EACd,kBAAkB;AACpB;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA;;AAEA;AACA","sourcesContent":[".container {\n  max-width: 60rem;\n  margin: 0 auto;\n  padding: 3rem 1rem;\n}\n\n.header {\n}\n\n.page-title {\n}\n\n.main {\n}\n\n.scores-section {\n}\n\n.scores__header {\n}\n\n.scores__title {\n}\n\n.scores__refresh-btn {\n}\n\n.scores__table {\n}\n\n.scores__table__row {\n}\n\n.scores__table__row__name {\n}\n\n.scores__table__row__score {\n}\n\n.add-score-section {\n}\n\n.add-score__title {\n}\n\n.add-score__form {\n}\n\n.add-score__form__label {\n}\n\n.add-score__form__input {\n}\n\n.add-score__form__btn {\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;EACE,uBAAuB;AACzB;;AAEA;EACE,oCAAoC;EACpC,qBAAqB;EACrB,sBAAsB;EACtB,wCAAwC;EACxC,kBAAkB;EAClB,gBAAgB;EAChB,eAAe;EACf,iCAAiC;AACnC;;AAEA;EACE,0BAA0B;AAC5B;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,SAAS;AACX;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,gBAAgB;EAChB,WAAW;AACb;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,WAAW;EACX,sBAAsB;AACxB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,oCAAoC;AACtC;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,eAAe;EACf,aAAa;EACb,SAAS;EACT,gBAAgB;EAChB,oBAAoB;AACtB;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,YAAY;EACZ,sBAAsB;AACxB;;AAEA;EACE,sBAAsB;EACtB,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,oCAAoC;AACtC","sourcesContent":["body {\n  font-family: sans-serif;\n}\n\nbutton {\n  background-color: rgb(246, 250, 253);\n  padding: 0.25rem 1rem;\n  border: 4px solid #000;\n  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1);\n  width: max-content;\n  font-weight: 900;\n  font-size: 18px;\n  transition: all 200ms ease-in-out;\n}\n\nbutton:active {\n  transform: translateY(3px);\n}\n\n.container {\n  max-width: 60rem;\n  margin: 0 auto;\n  padding: 0 1rem;\n}\n\n.header {\n  padding: 2rem 0;\n}\n\n.page-title {\n  font-size: 4rem;\n}\n\n.main .container {\n  display: flex;\n  gap: 4rem;\n}\n\n.scores-section {\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n  max-width: 44rem;\n  width: 65vw;\n}\n\n.scores__header {\n  display: flex;\n  justify-content: space-between;\n  gap: 1.5rem;\n  min-width: max-content;\n}\n\n.scores__title {\n  font-size: 2rem;\n}\n\n.scores__refresh-btn:hover {\n  background-color: rgb(251, 180, 110);\n}\n\n.scores__table {\n  border: 4px solid #000;\n}\n\n.scores__table__row {\n  padding: 0.5rem;\n  display: flex;\n  gap: 1rem;\n  font-weight: 600;\n  font-size: 1.0625rem;\n}\n\n.scores__table__row:nth-child(even) {\n  background-color: #ddd;\n}\n\n.add-score-section {\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.add-score__title {\n  font-size: 2rem;\n}\n\n.add-score__form {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  max-width: 40rem;\n}\n\n.add-score__form__label {\n  display: flex;\n  flex-direction: column-reverse;\n  gap: 0.25rem;\n  background-color: #fff;\n}\n\n.add-score__form__input {\n  border: 4px solid #000;\n  padding: 0.5rem;\n  min-width: 20rem;\n}\n\n.add-score__form__btn:hover {\n  background-color: rgb(135, 237, 121);\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
