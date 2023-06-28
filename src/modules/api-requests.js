@@ -17,4 +17,26 @@ export const fetchScores = async () => {
   }
 };
 
-export const postSingleScore = () => 'Not Implemented';
+export const postSingleScore = async ({ user, score }) => {
+  // https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/n4yY4NtqgXrTC1oTBtkJ/scores/
+  const url = `${ENDPOINT}/games/${GAME_ID}/scores`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user, score }),
+    });
+    if (!response.ok) {
+      throw new Error(
+        `Error posting data: Status code ${response.status} returned`,
+      );
+    }
+    const data = await response.json();
+    return { success: data.result === 'Leaderboard score created correctly.' };
+  } catch (error) {
+    throw new Error('Unknown Error fetching data');
+  }
+};
