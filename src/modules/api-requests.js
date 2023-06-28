@@ -2,7 +2,6 @@ const ENDPOINT = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api
 const GAME_ID = 'n4yY4NtqgXrTC1oTBtkJ';
 
 export const fetchScores = async () => {
-  // https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/n4yY4NtqgXrTC1oTBtkJ/scores/
   const url = `${ENDPOINT}/games/${GAME_ID}/scores`;
   try {
     const response = await fetch(url);
@@ -19,7 +18,6 @@ export const fetchScores = async () => {
 };
 
 export const postSingleScore = async ({ user, score }) => {
-  // https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/n4yY4NtqgXrTC1oTBtkJ/scores/
   const url = `${ENDPOINT}/games/${GAME_ID}/scores`;
 
   try {
