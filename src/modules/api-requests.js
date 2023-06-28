@@ -3,8 +3,9 @@ const GAME_ID = 'n4yY4NtqgXrTC1oTBtkJ';
 
 export const fetchScores = async () => {
   // https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/n4yY4NtqgXrTC1oTBtkJ/scores/
+  const url = `${ENDPOINT}/games/${GAME_ID}/scores`;
   try {
-    const response = await fetch(`${ENDPOINT}/games/${GAME_ID}/scores`);
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error(
         `Error fetching data: Status code ${response.status} returned`,

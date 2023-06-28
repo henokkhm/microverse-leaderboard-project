@@ -751,8 +751,9 @@ const GAME_ID = 'n4yY4NtqgXrTC1oTBtkJ';
 
 const fetchScores = async () => {
   // https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/n4yY4NtqgXrTC1oTBtkJ/scores/
+  const url = `${ENDPOINT}/games/${GAME_ID}/scores`;
   try {
-    const response = await fetch(`${ENDPOINT}/games/${GAME_ID}/scores`);
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error(
         `Error fetching data: Status code ${response.status} returned`,
@@ -765,7 +766,29 @@ const fetchScores = async () => {
   }
 };
 
-const postSingleScore = () => 'Not Implemented';
+const postSingleScore = async ({ user, score }) => {
+  // https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/n4yY4NtqgXrTC1oTBtkJ/scores/
+  const url = `${ENDPOINT}/games/${GAME_ID}/scores`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user, score }),
+    });
+    if (!response.ok) {
+      throw new Error(
+        `Error posting data: Status code ${response.status} returned`,
+      );
+    }
+    const data = await response.json();
+    return { success: data.result === 'Leaderboard score created correctly.' };
+  } catch (error) {
+    throw new Error('Unknown Error fetching data');
+  }
+};
 
 
 /***/ }),
@@ -896,6 +919,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_reset_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/reset.css */ "./src/styles/reset.css");
 /* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
 /* harmony import */ var _modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/render-scores.js */ "./src/modules/render-scores.js");
+/* harmony import */ var _modules_api_requests_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/api-requests.js */ "./src/modules/api-requests.js");
+
 
 
 
@@ -905,6 +930,23 @@ const refreshButton = document.querySelector('#scores__refresh-btn');
 refreshButton.addEventListener('click', () => (0,_modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__["default"])());
 // Get fresh scores data when the page is loaded
 window.addEventListener('load', () => (0,_modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__["default"])());
+
+const addScoreForm = document.querySelector('#add-score__form');
+addScoreForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const data = new FormData(addScoreForm);
+  const user = data.get('user');
+  const score = data.get('score');
+  try {
+    const { success } = await (0,_modules_api_requests_js__WEBPACK_IMPORTED_MODULE_3__.postSingleScore)({ user, score });
+    if (success) {
+      // TODO: Tell user that the score was saved successfully
+      (0,_modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    }
+  } catch (e) {
+    // TODO: Tell user that the score was NOT saved successfully, try again later
+  }
+});
 
 })();
 
