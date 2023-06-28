@@ -811,7 +811,16 @@ const renderScores = async () => {
   scoresTable.innerHTML = '';
   const latestScores = await (0,_api_requests_js__WEBPACK_IMPORTED_MODULE_0__.fetchScores)();
 
-  latestScores.forEach((score) => {
+  // The scores returned by the API are not in sorted order, so we sort them
+  // before appending them to the DOM
+  const sortedScores = latestScores
+    .map(({ user, score }) => ({
+      user,
+      score: parseInt(score, 10),
+    }))
+    .sort((a, b) => a.score - b.score);
+
+  sortedScores.forEach((score) => {
     // 1. Create row div
     const row = document.createElement('div');
     row.classList.add('scores__table__row');
@@ -931,16 +940,20 @@ refreshButton.addEventListener('click', () => (0,_modules_render_scores_js__WEBP
 // Get fresh scores data when the page is loaded
 window.addEventListener('load', () => (0,_modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__["default"])());
 
+// Event handler for Add Score form submission
 const addScoreForm = document.querySelector('#add-score__form');
 addScoreForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const data = new FormData(addScoreForm);
   const user = data.get('user');
-  const score = data.get('score');
+  const scoreString = data.get('score');
+  const score = parseInt(scoreString, 10);
+
   try {
     const { success } = await (0,_modules_api_requests_js__WEBPACK_IMPORTED_MODULE_3__.postSingleScore)({ user, score });
     if (success) {
       // TODO: Tell user that the score was saved successfully
+      addScoreForm.reset();
       (0,_modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
     }
   } catch (e) {

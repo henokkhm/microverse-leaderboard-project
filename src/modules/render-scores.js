@@ -5,7 +5,16 @@ const renderScores = async () => {
   scoresTable.innerHTML = '';
   const latestScores = await fetchScores();
 
-  latestScores.forEach((score) => {
+  // The scores returned by the API are not in sorted order, so we sort them
+  // before appending them to the DOM
+  const sortedScores = latestScores
+    .map(({ user, score }) => ({
+      user,
+      score: parseInt(score, 10),
+    }))
+    .sort((a, b) => a.score - b.score);
+
+  sortedScores.forEach((score) => {
     // 1. Create row div
     const row = document.createElement('div');
     row.classList.add('scores__table__row');
