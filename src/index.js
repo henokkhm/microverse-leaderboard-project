@@ -15,7 +15,9 @@ addScoreForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const data = new FormData(addScoreForm);
   const user = data.get('user');
-  const score = data.get('score');
+  const scoreString = data.get('score');
+  const score = parseInt(scoreString, 10);
+
   try {
     const { success } = await postSingleScore({ user, score });
     if (success) {
