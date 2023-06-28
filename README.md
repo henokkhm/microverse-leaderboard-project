@@ -9,7 +9,6 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
-  - [🚀 Live Demo ](#-live-demo-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -53,14 +52,6 @@ This project is the Leaderboard project for Module 2 - Week 4 of the Full-Stack 
 - **Webpack:** is used to bundle JavaScript files.
 - **HtmlWebpackPlugin:** is used to automatically generate the index.html file in the /dist directory.
 - **webpack-dev-server :** improves developer experience by watching your source files, automatically compiling distribution files and refreshing the browser every time you *save* changes in the source code.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-This project currently doesn't have a live demo.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
