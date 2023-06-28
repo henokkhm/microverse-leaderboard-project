@@ -1,9 +1,9 @@
 import { fetchScores } from './api-requests.js';
 
-const renderScores = () => {
+const renderScores = async () => {
   const scoresTable = document.querySelector('#scores__table');
   scoresTable.innerHTML = '';
-  const latestScores = fetchScores();
+  const latestScores = await fetchScores();
 
   latestScores.forEach((score) => {
     // 1. Create row div

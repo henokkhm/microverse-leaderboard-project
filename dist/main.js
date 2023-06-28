@@ -746,29 +746,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   fetchScores: () => (/* binding */ fetchScores),
 /* harmony export */   postSingleScore: () => (/* binding */ postSingleScore)
 /* harmony export */ });
-// const ENDPOINT = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
-// const GAME_ID = 'n4yY4NtqgXrTC1oTBtkJ';
+const ENDPOINT = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
+const GAME_ID = 'n4yY4NtqgXrTC1oTBtkJ';
 
-const mockData = {
-  result: [
-    {
-      user: 'John Doe',
-      score: 42,
-    },
-    {
-      user: 'Peter Parker',
-      score: 35,
-    },
-    {
-      user: 'Wonder Woman',
-      score: 50,
-    },
-  ],
+const fetchScores = async () => {
+  // https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/n4yY4NtqgXrTC1oTBtkJ/scores/
+  try {
+    const response = await fetch(`${ENDPOINT}/games/${GAME_ID}/scores`);
+    if (!response.ok) {
+      throw new Error(
+        `Error fetching data: Status code ${response.status} returned`,
+      );
+    }
+    const data = await response.json();
+    return data.result;
+  } catch (error) {
+    throw new Error('Unknown Error fetching data');
+  }
 };
 
-const fetchScores = () => mockData.result;
-
-const postSingleScore = (score) => mockData.push(score);
+const postSingleScore = () => 'Not Implemented';
 
 
 /***/ }),
@@ -786,10 +783,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _api_requests_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api-requests.js */ "./src/modules/api-requests.js");
 
 
-const renderScores = () => {
+const renderScores = async () => {
   const scoresTable = document.querySelector('#scores__table');
   scoresTable.innerHTML = '';
-  const latestScores = (0,_api_requests_js__WEBPACK_IMPORTED_MODULE_0__.fetchScores)();
+  const latestScores = await (0,_api_requests_js__WEBPACK_IMPORTED_MODULE_0__.fetchScores)();
 
   latestScores.forEach((score) => {
     // 1. Create row div
@@ -812,6 +809,7 @@ const renderScores = () => {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderScores);
+
 
 /***/ })
 
