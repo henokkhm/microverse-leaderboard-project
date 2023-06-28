@@ -23,7 +23,6 @@ addScoreForm.addEventListener('submit', async (e) => {
     if (success) {
       // TODO: Tell user that the score was saved successfully
       addScoreForm.reset();
-      renderScores();
     }
   } catch (e) {
     // TODO: Tell user that the score was NOT saved successfully, try again later

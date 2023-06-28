@@ -952,7 +952,6 @@ addScoreForm.addEventListener('submit', async (e) => {
     if (success) {
       // TODO: Tell user that the score was saved successfully
       addScoreForm.reset();
-      (0,_modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
     }
   } catch (e) {
     // TODO: Tell user that the score was NOT saved successfully, try again later
