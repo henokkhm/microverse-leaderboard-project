@@ -733,6 +733,114 @@ function styleTagTransform(css, styleElement) {
 }
 module.exports = styleTagTransform;
 
+/***/ }),
+
+/***/ "./src/modules/api-requests.js":
+/*!*************************************!*\
+  !*** ./src/modules/api-requests.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   fetchScores: () => (/* binding */ fetchScores),
+/* harmony export */   postSingleScore: () => (/* binding */ postSingleScore)
+/* harmony export */ });
+const ENDPOINT = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
+const GAME_ID = 'n4yY4NtqgXrTC1oTBtkJ';
+
+const fetchScores = async () => {
+  const url = `${ENDPOINT}/games/${GAME_ID}/scores`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(
+        `Error fetching data: Status code ${response.status} returned`,
+      );
+    }
+    const data = await response.json();
+    return data.result;
+  } catch (error) {
+    throw new Error('Unknown Error fetching data');
+  }
+};
+
+const postSingleScore = async ({ user, score }) => {
+  const url = `${ENDPOINT}/games/${GAME_ID}/scores`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user, score }),
+    });
+    if (!response.ok) {
+      throw new Error(
+        `Error posting data: Status code ${response.status} returned`,
+      );
+    }
+    const data = await response.json();
+    return { success: data.result === 'Leaderboard score created correctly.' };
+  } catch (error) {
+    throw new Error('Unknown Error fetching data');
+  }
+};
+
+
+/***/ }),
+
+/***/ "./src/modules/render-scores.js":
+/*!**************************************!*\
+  !*** ./src/modules/render-scores.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _api_requests_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api-requests.js */ "./src/modules/api-requests.js");
+
+
+const renderScores = async () => {
+  const scoresTable = document.querySelector('#scores__table');
+  scoresTable.innerHTML = '';
+  const latestScores = await (0,_api_requests_js__WEBPACK_IMPORTED_MODULE_0__.fetchScores)();
+
+  // The scores returned by the API are not in sorted order, so we sort them
+  // before appending them to the DOM
+  const sortedScores = latestScores
+    .map(({ user, score }) => ({
+      user,
+      score: parseInt(score, 10),
+    }))
+    .sort((a, b) => a.score - b.score);
+
+  sortedScores.forEach((score) => {
+    // 1. Create row div
+    const row = document.createElement('div');
+    row.classList.add('scores__table__row');
+    // 2. Create name span
+    const nameSpan = document.createElement('span');
+    nameSpan.classList.add('scores__table__row__name');
+    nameSpan.innerText = score.user;
+    row.appendChild(nameSpan);
+    // 3. Create score span
+    const scoreSpan = document.createElement('span');
+    scoreSpan.classList.add('scores__table__row__score');
+    scoreSpan.innerText = score.score;
+    // 4. Add name and score to row
+    row.appendChild(scoreSpan);
+    // 5. Add row to table
+    scoresTable.appendChild(row);
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderScores);
+
+
 /***/ })
 
 /******/ 	});
@@ -817,8 +925,38 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_reset_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/reset.css */ "./src/styles/reset.css");
 /* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/render-scores.js */ "./src/modules/render-scores.js");
+/* harmony import */ var _modules_api_requests_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/api-requests.js */ "./src/modules/api-requests.js");
 
 
+
+
+
+const refreshButton = document.querySelector('#scores__refresh-btn');
+// Get fresh scores data when 'Refresh' button is clicked
+refreshButton.addEventListener('click', () => (0,_modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__["default"])());
+// Get fresh scores data when the page is loaded
+window.addEventListener('load', () => (0,_modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__["default"])());
+
+// Event handler for Add Score form submission
+const addScoreForm = document.querySelector('#add-score__form');
+addScoreForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const data = new FormData(addScoreForm);
+  const user = data.get('user');
+  const scoreString = data.get('score');
+  const score = parseInt(scoreString, 10);
+
+  try {
+    const { success } = await (0,_modules_api_requests_js__WEBPACK_IMPORTED_MODULE_3__.postSingleScore)({ user, score });
+    if (success) {
+      // TODO: Tell user that the score was saved successfully
+      addScoreForm.reset();
+    }
+  } catch (e) {
+    // TODO: Tell user that the score was NOT saved successfully, try again later
+  }
+});
 
 })();
 
