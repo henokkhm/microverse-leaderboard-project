@@ -902,6 +902,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const refreshButton = document.querySelector('#scores__refresh-btn');
+// Get fresh scores data when 'Refresh' button is clicked
+refreshButton.addEventListener('click', () => (0,_modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__["default"])());
+// Get fresh scores data when the page is loaded
 window.addEventListener('load', () => (0,_modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__["default"])());
 
 })();
