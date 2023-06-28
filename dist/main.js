@@ -733,6 +733,86 @@ function styleTagTransform(css, styleElement) {
 }
 module.exports = styleTagTransform;
 
+/***/ }),
+
+/***/ "./src/modules/api-requests.js":
+/*!*************************************!*\
+  !*** ./src/modules/api-requests.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   fetchScores: () => (/* binding */ fetchScores),
+/* harmony export */   postSingleScore: () => (/* binding */ postSingleScore)
+/* harmony export */ });
+// const ENDPOINT = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
+// const GAME_ID = 'n4yY4NtqgXrTC1oTBtkJ';
+
+const mockData = {
+  result: [
+    {
+      user: 'John Doe',
+      score: 42,
+    },
+    {
+      user: 'Peter Parker',
+      score: 35,
+    },
+    {
+      user: 'Wonder Woman',
+      score: 50,
+    },
+  ],
+};
+
+const fetchScores = () => mockData.result;
+
+const postSingleScore = (score) => mockData.push(score);
+
+
+/***/ }),
+
+/***/ "./src/modules/render-scores.js":
+/*!**************************************!*\
+  !*** ./src/modules/render-scores.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _api_requests_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api-requests.js */ "./src/modules/api-requests.js");
+
+
+const renderScores = () => {
+  const scoresTable = document.querySelector('#scores__table');
+  scoresTable.innerHTML = '';
+  const latestScores = (0,_api_requests_js__WEBPACK_IMPORTED_MODULE_0__.fetchScores)();
+
+  latestScores.forEach((score) => {
+    // 1. Create row div
+    const row = document.createElement('div');
+    row.classList.add('scores__table__row');
+    // 2. Create name span
+    const nameSpan = document.createElement('span');
+    nameSpan.classList.add('scores__table__row__name');
+    nameSpan.innerText = score.user;
+    row.appendChild(nameSpan);
+    // 3. Create score span
+    const scoreSpan = document.createElement('span');
+    scoreSpan.classList.add('scores__table__row__score');
+    scoreSpan.innerText = score.score;
+    // 4. Add name and score to row
+    row.appendChild(scoreSpan);
+    // 5. Add row to table
+    scoresTable.appendChild(row);
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderScores);
+
 /***/ })
 
 /******/ 	});
@@ -817,8 +897,12 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_reset_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/reset.css */ "./src/styles/reset.css");
 /* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/render-scores.js */ "./src/modules/render-scores.js");
 
 
+
+
+window.addEventListener('load', () => (0,_modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__["default"])());
 
 })();
 
