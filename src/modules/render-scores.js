@@ -12,7 +12,7 @@ const renderScores = async () => {
       user,
       score: parseInt(score, 10),
     }))
-    .sort((a, b) => a.score - b.score);
+    .sort((a, b) => b.score - a.score);
 
   sortedScores.forEach((score) => {
     // 1. Create row div
