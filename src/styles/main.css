@@ -77,6 +77,7 @@ button:active {
   justify-content: center;
   background-color: var(--primary-color-200);
   padding-top: 3rem;
+  overflow: hidden;
 }
 
 .top-score {
@@ -89,6 +90,7 @@ button:active {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   transform-origin: bottom;
+  animation: slide-up 500ms ease-in;
 }
 
 .top-score__rank {
@@ -138,6 +140,7 @@ button:active {
   height: 17rem;
   order: 1;
   transition: transform 0.3s ease-in-out;
+  animation-delay: 50ms;
 }
 
 .top-score__second:hover {
@@ -154,6 +157,7 @@ button:active {
   height: 14rem;
   order: 3;
   transition: transform 0.3s ease-in-out;
+  animation-delay: 150ms;
 }
 
 .top-score__third:hover {
@@ -238,4 +242,18 @@ button:active {
 
 .add-score__form__btn:hover {
   background-color: rgb(135, 237, 121);
+}
+
+/* Animations */
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10em);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
