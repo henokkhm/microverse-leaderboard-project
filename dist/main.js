@@ -936,8 +936,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const renderScores = async () => {
-  const scoresTable = document.querySelector('#scores__table');
-  scoresTable.innerHTML = '';
+  // Fetch scores from API
   const latestScores = await (0,_api_requests_js__WEBPACK_IMPORTED_MODULE_0__.fetchScores)();
 
   // The scores returned by the API are not in sorted order, so we sort them
@@ -949,22 +948,69 @@ const renderScores = async () => {
     }))
     .sort((a, b) => b.score - a.score);
 
-  sortedScores.forEach((score) => {
+  // Render top three scores to "Top Scores" section
+  const topThreeScores = sortedScores.slice(0, 3);
+  const topScoresTarget = document.querySelector('#top-scores-container');
+  topScoresTarget.innerHTML = '';
+
+  topThreeScores.forEach((scoreData, index) => {
+    // 1. Create vertical bar div
+    const bar = document.createElement('div');
+    bar.classList.add('top-score');
+    // 2. Set class depending on score rank
+    if (index === 0) {
+      bar.classList.add('top-score__first');
+    }
+    if (index === 1) {
+      bar.classList.add('top-score__second');
+    }
+    if (index === 2) {
+      bar.classList.add('top-score__third');
+    }
+    // 3. Create rank span
+    const rank = document.createElement('span');
+    rank.classList.add('top-score__rank');
+    rank.innerText = index + 1;
+    bar.appendChild(rank);
+    // 4. Create name span
+    const user = document.createElement('span');
+    user.classList.add('top-score__user');
+    user.innerText = scoreData.user;
+    bar.appendChild(user);
+    // 5. Create score span
+    const score = document.createElement('span');
+    score.classList.add('top-score__score');
+    score.innerText = scoreData.score;
+    bar.appendChild(score);
+    // 4. Add bar to container
+    topScoresTarget.appendChild(bar);
+  });
+
+  // Render all scrores to "Recent Scores" section
+  const scoresTable = document.querySelector('#scores__table');
+  scoresTable.innerHTML = '';
+
+  sortedScores.forEach((scoreData, index) => {
     // 1. Create row div
     const row = document.createElement('div');
     row.classList.add('scores__table__row');
-    // 2. Create name span
-    const nameSpan = document.createElement('span');
-    nameSpan.classList.add('scores__table__row__name');
-    nameSpan.innerText = score.user;
-    row.appendChild(nameSpan);
-    // 3. Create score span
-    const scoreSpan = document.createElement('span');
-    scoreSpan.classList.add('scores__table__row__score');
-    scoreSpan.innerText = score.score;
-    // 4. Add name and score to row
-    row.appendChild(scoreSpan);
-    // 5. Add row to table
+    // 2. Create rank span
+    const rank = document.createElement('span');
+    rank.classList.add('scores__table__row__rank');
+    rank.innerText = index + 1;
+    row.appendChild(rank);
+    // 3. Create name span
+    const name = document.createElement('span');
+    name.classList.add('scores__table__row__name');
+    name.innerText = scoreData.user;
+    row.appendChild(name);
+    // 4. Create score span
+    const score = document.createElement('span');
+    score.classList.add('scores__table__row__score');
+    score.innerText = scoreData.score;
+    // 5. Add name and score to row
+    row.appendChild(score);
+    // 6. Add row to table
     scoresTable.appendChild(row);
   });
 };
