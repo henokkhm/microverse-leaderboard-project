@@ -12,7 +12,7 @@
   --gray-400: #d1dee4;
   --gray-500: #a4b0b6;
   --gray-600: #828a8d;
-  --gray-700: #5f6263;
+  --gray-700: #464646;
   --gray-800: #011016;
 
   /* Fonts */
@@ -23,17 +23,22 @@
 body {
   font-family: var(--font-poppins);
   background-color: var(--gray-300);
+  color: var(--gray-700);
 }
 
 button {
-  background-color: rgb(246, 250, 253);
-  padding: 0.25rem 1rem;
-  border: 4px solid #000;
-  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1);
+  background-color: var(--primary-color-500);
+  color: var(--white);
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--primary-color-500);
+  border-radius: 0.75rem;
   width: max-content;
-  font-weight: 900;
-  font-size: 18px;
+  font-size: 1.25rem;
   transition: all 200ms ease-in-out;
+}
+
+button:hover {
+  background-color: var(--primary-color-400);
 }
 
 button:active {
@@ -71,6 +76,10 @@ button:active {
 }
 
 /* Top Scores Section */
+.top-scores-section {
+  order: 1;
+}
+
 .top-scores-section > .container {
   display: flex;
   gap: 1rem;
@@ -78,6 +87,8 @@ button:active {
   background-color: var(--primary-color-200);
   padding-top: 3rem;
   overflow: hidden;
+  border-bottom-right-radius: 20%;
+  border-bottom-left-radius: 20%;
 }
 
 .top-score {
@@ -170,6 +181,7 @@ button:active {
 
 /* Recent Scores Section */
 .scores-section {
+  order: 3;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -186,10 +198,6 @@ button:active {
 
 .scores__title {
   font-size: 2rem;
-}
-
-.scores__refresh-btn:hover {
-  background-color: rgb(251, 180, 110);
 }
 
 .scores__table {
@@ -211,13 +219,18 @@ button:active {
 /* Add Score Section */
 
 .add-score-section {
+  order: 2;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  padding-top: 5rem;
+  margin-top: -3rem;
 }
 
 .add-score__title {
   font-size: 2rem;
+  text-align: center;
+  padding-bottom: 1rem;
 }
 
 .add-score__form {
@@ -238,10 +251,6 @@ button:active {
   border: 4px solid #000;
   padding: 0.5rem;
   min-width: 20rem;
-}
-
-.add-score__form__btn:hover {
-  background-color: rgb(135, 237, 121);
 }
 
 /* Animations */
