@@ -21,8 +21,31 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `body {
-  font-family: sans-serif;
+___CSS_LOADER_EXPORT___.push([module.id, `/* Custom Properties */
+:root {
+  /* Colors */
+  --primary-color-200: #a2e4ff;
+  --primary-color-300: #6bcdf4;
+  --primary-color-400: #3ebdef;
+  --primary-color-500: #00a2e2;
+  --primary-color-600: #02516f;
+  --white: #fff;
+  --black: #000;
+  --gray-300: #f4f9fb;
+  --gray-400: #d1dee4;
+  --gray-500: #a4b0b6;
+  --gray-600: #828a8d;
+  --gray-700: #5f6263;
+  --gray-800: #011016;
+
+  /* Fonts */
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+/* General Styles */
+body {
+  font-family: var(--font-poppins);
+  background-color: var(--gray-300);
 }
 
 button {
@@ -46,19 +69,125 @@ button:active {
   padding: 0 1rem;
 }
 
+/* Header Styles */
+
 .header {
-  padding: 2rem 0;
+  padding: 3rem 0;
+  background-color: var(--primary-color-200);
+  text-align: center;
 }
 
 .page-title {
-  font-size: 4rem;
+  font-size: 3.25rem;
 }
 
-.main .container {
+.main {
   display: flex;
+  flex-direction: column;
   gap: 4rem;
 }
 
+@media (min-width: 45rem) {
+  .main .container {
+    flex-direction: row;
+  }
+}
+
+/* Top Scores Section */
+.top-scores-section > .container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  background-color: var(--primary-color-200);
+  padding-top: 3rem;
+}
+
+.top-score {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  width: 8rem;
+  padding: 1.25rem 0.75rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  transform-origin: bottom;
+}
+
+.top-score__rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.25rem;
+  background-color: var(--white);
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.top-score__user {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--gray-800);
+}
+
+.top-score__score {
+  font-weight: 600;
+  color: var(--white);
+}
+
+.top-score__first {
+  background-color: var(--primary-color-500);
+  order: 2;
+  height: 20rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.top-score__first:hover {
+  transform: scale(1.06);
+}
+
+.top-score__first > .top-score__score {
+  font-size: 2.25rem;
+}
+
+.top-score__second {
+  background-color: var(--primary-color-400);
+  margin-top: 3rem;
+  height: 17rem;
+  order: 1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.top-score__second:hover {
+  transform: scale(1.04);
+}
+
+.top-score__second > .top-score__score {
+  font-size: 1.5rem;
+}
+
+.top-score__third {
+  background-color: var(--primary-color-300);
+  margin-top: 6rem;
+  height: 14rem;
+  order: 3;
+  transition: transform 0.3s ease-in-out;
+}
+
+.top-score__third:hover {
+  transform: scale(1.03);
+}
+
+.top-score__third > .top-score__score {
+  font-size: 1.5rem;
+}
+
+/* Recent Scores Section */
 .scores-section {
   display: flex;
   flex-direction: column;
@@ -98,6 +227,8 @@ button:active {
   background-color: #ddd;
 }
 
+/* Add Score Section */
+
 .add-score-section {
   display: flex;
   flex-direction: column;
@@ -131,7 +262,7 @@ button:active {
 .add-score__form__btn:hover {
   background-color: rgb(135, 237, 121);
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;EACE,uBAAuB;AACzB;;AAEA;EACE,oCAAoC;EACpC,qBAAqB;EACrB,sBAAsB;EACtB,wCAAwC;EACxC,kBAAkB;EAClB,gBAAgB;EAChB,eAAe;EACf,iCAAiC;AACnC;;AAEA;EACE,0BAA0B;AAC5B;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,SAAS;AACX;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,gBAAgB;EAChB,WAAW;AACb;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,WAAW;EACX,sBAAsB;AACxB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,oCAAoC;AACtC;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,eAAe;EACf,aAAa;EACb,SAAS;EACT,gBAAgB;EAChB,oBAAoB;AACtB;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,YAAY;EACZ,sBAAsB;AACxB;;AAEA;EACE,sBAAsB;EACtB,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,oCAAoC;AACtC","sourcesContent":["body {\n  font-family: sans-serif;\n}\n\nbutton {\n  background-color: rgb(246, 250, 253);\n  padding: 0.25rem 1rem;\n  border: 4px solid #000;\n  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1);\n  width: max-content;\n  font-weight: 900;\n  font-size: 18px;\n  transition: all 200ms ease-in-out;\n}\n\nbutton:active {\n  transform: translateY(3px);\n}\n\n.container {\n  max-width: 60rem;\n  margin: 0 auto;\n  padding: 0 1rem;\n}\n\n.header {\n  padding: 2rem 0;\n}\n\n.page-title {\n  font-size: 4rem;\n}\n\n.main .container {\n  display: flex;\n  gap: 4rem;\n}\n\n.scores-section {\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n  max-width: 44rem;\n  width: 65vw;\n}\n\n.scores__header {\n  display: flex;\n  justify-content: space-between;\n  gap: 1.5rem;\n  min-width: max-content;\n}\n\n.scores__title {\n  font-size: 2rem;\n}\n\n.scores__refresh-btn:hover {\n  background-color: rgb(251, 180, 110);\n}\n\n.scores__table {\n  border: 4px solid #000;\n}\n\n.scores__table__row {\n  padding: 0.5rem;\n  display: flex;\n  gap: 1rem;\n  font-weight: 600;\n  font-size: 1.0625rem;\n}\n\n.scores__table__row:nth-child(even) {\n  background-color: #ddd;\n}\n\n.add-score-section {\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.add-score__title {\n  font-size: 2rem;\n}\n\n.add-score__form {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  max-width: 40rem;\n}\n\n.add-score__form__label {\n  display: flex;\n  flex-direction: column-reverse;\n  gap: 0.25rem;\n  background-color: #fff;\n}\n\n.add-score__form__input {\n  border: 4px solid #000;\n  padding: 0.5rem;\n  min-width: 20rem;\n}\n\n.add-score__form__btn:hover {\n  background-color: rgb(135, 237, 121);\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA,sBAAsB;AACtB;EACE,WAAW;EACX,4BAA4B;EAC5B,4BAA4B;EAC5B,4BAA4B;EAC5B,4BAA4B;EAC5B,4BAA4B;EAC5B,aAAa;EACb,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,mBAAmB;EACnB,mBAAmB;EACnB,mBAAmB;EACnB,mBAAmB;;EAEnB,UAAU;EACV,qCAAqC;AACvC;;AAEA,mBAAmB;AACnB;EACE,gCAAgC;EAChC,iCAAiC;AACnC;;AAEA;EACE,oCAAoC;EACpC,qBAAqB;EACrB,sBAAsB;EACtB,wCAAwC;EACxC,kBAAkB;EAClB,gBAAgB;EAChB,eAAe;EACf,iCAAiC;AACnC;;AAEA;EACE,0BAA0B;AAC5B;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,eAAe;AACjB;;AAEA,kBAAkB;;AAElB;EACE,eAAe;EACf,0CAA0C;EAC1C,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE;IACE,mBAAmB;EACrB;AACF;;AAEA,uBAAuB;AACvB;EACE,aAAa;EACb,SAAS;EACT,uBAAuB;EACvB,0CAA0C;EAC1C,iBAAiB;AACnB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,WAAW;EACX,mBAAmB;EACnB,WAAW;EACX,wBAAwB;EACxB,8BAA8B;EAC9B,+BAA+B;EAC/B,wBAAwB;AAC1B;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;EAChB,kBAAkB;EAClB,8BAA8B;EAC9B,WAAW;EACX,YAAY;EACZ,eAAe;EACf,mBAAmB;EACnB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,kBAAkB;EAClB,gBAAgB;EAChB,sBAAsB;AACxB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,0CAA0C;EAC1C,QAAQ;EACR,aAAa;EACb,sCAAsC;AACxC;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,0CAA0C;EAC1C,gBAAgB;EAChB,aAAa;EACb,QAAQ;EACR,sCAAsC;AACxC;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,iBAAiB;AACnB;;AAEA;EACE,0CAA0C;EAC1C,gBAAgB;EAChB,aAAa;EACb,QAAQ;EACR,sCAAsC;AACxC;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,iBAAiB;AACnB;;AAEA,0BAA0B;AAC1B;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,gBAAgB;EAChB,WAAW;AACb;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,WAAW;EACX,sBAAsB;AACxB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,oCAAoC;AACtC;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,eAAe;EACf,aAAa;EACb,SAAS;EACT,gBAAgB;EAChB,oBAAoB;AACtB;;AAEA;EACE,sBAAsB;AACxB;;AAEA,sBAAsB;;AAEtB;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,YAAY;EACZ,sBAAsB;AACxB;;AAEA;EACE,sBAAsB;EACtB,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,oCAAoC;AACtC","sourcesContent":["/* Custom Properties */\n:root {\n  /* Colors */\n  --primary-color-200: #a2e4ff;\n  --primary-color-300: #6bcdf4;\n  --primary-color-400: #3ebdef;\n  --primary-color-500: #00a2e2;\n  --primary-color-600: #02516f;\n  --white: #fff;\n  --black: #000;\n  --gray-300: #f4f9fb;\n  --gray-400: #d1dee4;\n  --gray-500: #a4b0b6;\n  --gray-600: #828a8d;\n  --gray-700: #5f6263;\n  --gray-800: #011016;\n\n  /* Fonts */\n  --font-poppins: 'Poppins', sans-serif;\n}\n\n/* General Styles */\nbody {\n  font-family: var(--font-poppins);\n  background-color: var(--gray-300);\n}\n\nbutton {\n  background-color: rgb(246, 250, 253);\n  padding: 0.25rem 1rem;\n  border: 4px solid #000;\n  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1);\n  width: max-content;\n  font-weight: 900;\n  font-size: 18px;\n  transition: all 200ms ease-in-out;\n}\n\nbutton:active {\n  transform: translateY(3px);\n}\n\n.container {\n  max-width: 60rem;\n  margin: 0 auto;\n  padding: 0 1rem;\n}\n\n/* Header Styles */\n\n.header {\n  padding: 3rem 0;\n  background-color: var(--primary-color-200);\n  text-align: center;\n}\n\n.page-title {\n  font-size: 3.25rem;\n}\n\n.main {\n  display: flex;\n  flex-direction: column;\n  gap: 4rem;\n}\n\n@media (min-width: 45rem) {\n  .main .container {\n    flex-direction: row;\n  }\n}\n\n/* Top Scores Section */\n.top-scores-section > .container {\n  display: flex;\n  gap: 1rem;\n  justify-content: center;\n  background-color: var(--primary-color-200);\n  padding-top: 3rem;\n}\n\n.top-score {\n  display: flex;\n  flex-direction: column;\n  gap: 0.5rem;\n  align-items: center;\n  width: 8rem;\n  padding: 1.25rem 0.75rem;\n  border-top-left-radius: 0.5rem;\n  border-top-right-radius: 0.5rem;\n  transform-origin: bottom;\n}\n\n.top-score__rank {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 1.25rem;\n  background-color: var(--white);\n  width: 2rem;\n  height: 2rem;\n  padding: 0.5rem;\n  border-radius: 100%;\n  overflow: hidden;\n}\n\n.top-score__user {\n  text-align: center;\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: var(--gray-800);\n}\n\n.top-score__score {\n  font-weight: 600;\n  color: var(--white);\n}\n\n.top-score__first {\n  background-color: var(--primary-color-500);\n  order: 2;\n  height: 20rem;\n  transition: transform 0.3s ease-in-out;\n}\n\n.top-score__first:hover {\n  transform: scale(1.06);\n}\n\n.top-score__first > .top-score__score {\n  font-size: 2.25rem;\n}\n\n.top-score__second {\n  background-color: var(--primary-color-400);\n  margin-top: 3rem;\n  height: 17rem;\n  order: 1;\n  transition: transform 0.3s ease-in-out;\n}\n\n.top-score__second:hover {\n  transform: scale(1.04);\n}\n\n.top-score__second > .top-score__score {\n  font-size: 1.5rem;\n}\n\n.top-score__third {\n  background-color: var(--primary-color-300);\n  margin-top: 6rem;\n  height: 14rem;\n  order: 3;\n  transition: transform 0.3s ease-in-out;\n}\n\n.top-score__third:hover {\n  transform: scale(1.03);\n}\n\n.top-score__third > .top-score__score {\n  font-size: 1.5rem;\n}\n\n/* Recent Scores Section */\n.scores-section {\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n  max-width: 44rem;\n  width: 65vw;\n}\n\n.scores__header {\n  display: flex;\n  justify-content: space-between;\n  gap: 1.5rem;\n  min-width: max-content;\n}\n\n.scores__title {\n  font-size: 2rem;\n}\n\n.scores__refresh-btn:hover {\n  background-color: rgb(251, 180, 110);\n}\n\n.scores__table {\n  border: 4px solid #000;\n}\n\n.scores__table__row {\n  padding: 0.5rem;\n  display: flex;\n  gap: 1rem;\n  font-weight: 600;\n  font-size: 1.0625rem;\n}\n\n.scores__table__row:nth-child(even) {\n  background-color: #ddd;\n}\n\n/* Add Score Section */\n\n.add-score-section {\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.add-score__title {\n  font-size: 2rem;\n}\n\n.add-score__form {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  max-width: 40rem;\n}\n\n.add-score__form__label {\n  display: flex;\n  flex-direction: column-reverse;\n  gap: 0.25rem;\n  background-color: #fff;\n}\n\n.add-score__form__input {\n  border: 4px solid #000;\n  padding: 0.5rem;\n  min-width: 20rem;\n}\n\n.add-score__form__btn:hover {\n  background-color: rgb(135, 237, 121);\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

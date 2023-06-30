@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
@@ -13,44 +19,70 @@
       </div>
     </header>
     <main class="main">
-      <div class="container">
-        <section class="scores-section">
+      <section class="top-scores-section">
+        <div class="container">
+          <div class="top-score top-score__first">
+            <span class="top-score__rank">1</span>
+            <span class="top-score__user">Kal El</span>
+            <span class="top-score__score">60</span>
+          </div>
+          <div class="top-score top-score__second">
+            <span class="top-score__rank">2</span>
+            <span class="top-score__user">Wonder Woman</span>
+            <span class="top-score__score">50</span>
+          </div>
+          <div class="top-score top-score__third">
+            <span class="top-score__rank">3</span>
+            <span class="top-score__user">Peter Parker</span>
+            <span class="top-score__score">35</span>
+          </div>
+        </div>
+      </section>
+      <section class="scores-section">
+        <div class="container">
           <div class="scores__header">
             <h2 class="scores__title">Recent Scores</h2>
-            <button class="scores__refresh-btn" id="scores__refresh-btn" type="button">Refresh</button>
+            <button
+              class="scores__refresh-btn"
+              id="scores__refresh-btn"
+              type="button"
+            >
+              Refresh
+            </button>
           </div>
-          <div class="scores__table" id="scores__table">
-          </div>
-        </section>
-        <section class="add-score-section">
+          <div class="scores__table" id="scores__table"></div>
+        </div>
+      </section>
+      <section class="add-score-section">
+        <div class="container">
           <h2 class="add-score__title">Add your score</h2>
           <form class="add-score__form" id="add-score__form">
-              <label class="add-score__form__label" for="user">
-                <input
-                  class="add-score__form__input"
-                  type="text"
-                  id="user"
-                  name="user"
-                  placeholder=" "
-                  required
-                />
-                <span> Your name </span>
-              </label>
-              <label class="add-score__form__label" for="score">
-                <input
-                  class="add-score__form__input"
-                  type="text"
-                  id="score"
-                  name="score"
-                  placeholder=" "
-                  required
-                />
-                <span> Your score </span>
-              </label>
+            <label class="add-score__form__label" for="user">
+              <input
+                class="add-score__form__input"
+                type="text"
+                id="user"
+                name="user"
+                placeholder=" "
+                required
+              />
+              <span> Your name </span>
+            </label>
+            <label class="add-score__form__label" for="score">
+              <input
+                class="add-score__form__input"
+                type="text"
+                id="score"
+                name="score"
+                placeholder=" "
+                required
+              />
+              <span> Your score </span>
+            </label>
             <button class="add-score__form__btn" type="submit">Submit</button>
           </form>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>
