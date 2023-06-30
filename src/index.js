@@ -2,6 +2,7 @@ import './styles/reset.css';
 import './styles/main.css';
 import renderScores from './modules/render-scores.js';
 import { postSingleScore } from './modules/api-requests.js';
+import './modules/floating-labels.js';
 
 const refreshButton = document.querySelector('#scores__refresh-btn');
 // Get fresh scores data when 'Refresh' button is clicked
