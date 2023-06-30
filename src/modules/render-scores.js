@@ -68,15 +68,22 @@ const renderScores = async () => {
     const name = document.createElement('span');
     name.classList.add('scores__table__row__name');
     name.innerText = scoreData.user;
-    row.appendChild(name);
     // 4. Create score span
     const score = document.createElement('span');
     score.classList.add('scores__table__row__score');
     score.innerText = scoreData.score;
-    // 5. Add name and score to row
+    // 5. Create points span
+    const points = document.createElement('span');
+    points.classList.add('scores__table__row__points-label');
+    points.innerText = 'Points';
+    // 6. Add name and score to row
+    row.appendChild(name);
     row.appendChild(score);
-    // 6. Add row to table
+    row.appendChild(points);
+    // 7. Add row to table
     scoresTable.appendChild(row);
+    // 8. Add staggered animation
+    row.style.animationDelay = `${20 * index}ms`;
   });
 };
 

@@ -46,7 +46,7 @@ button:active {
 }
 
 .container {
-  max-width: 60rem;
+  width: 100%;
   min-width: 25rem;
   margin: 0 auto;
   padding: 0 1rem;
@@ -82,6 +82,7 @@ button:active {
 }
 
 .top-scores-section > .container {
+  width: 100%;
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -182,39 +183,66 @@ button:active {
 
 /* Recent Scores Section */
 .scores-section {
+  margin: 0 auto;
   order: 3;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 44rem;
-  width: 65vw;
+  width: 100%;
 }
 
 .scores__header {
+  max-width: 38rem;
+  margin: 0 auto;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  min-width: max-content;
 }
 
 .scores__title {
   font-size: 2rem;
 }
 
+.scores__refresh-btn {
+  width: 100%;
+}
+
 .scores__table {
-  border: 4px solid #000;
+  margin: 2rem auto 6rem auto;
+  max-width: 38rem;
 }
 
 .scores__table__row {
-  padding: 0.5rem;
+  padding: 0.75rem 0.5rem;
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
   font-weight: 600;
   font-size: 1.0625rem;
+  border-bottom: 1px solid var(--gray-400);
+  animation: slide-up 300ms ease-in;
 }
 
-.scores__table__row:nth-child(even) {
-  background-color: #ddd;
+.scores__table__row__rank {
+  font-weight: 400;
+}
+
+.scores__table__row__name {
+  margin-right: auto;
+  font-weight: 600;
+}
+
+.scores__table__row__score {
+  font-size: 1.5rem;
+}
+
+.scores__table__row__points-label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-left: -1rem;
 }
 
 /* Add Score Section */
@@ -233,10 +261,11 @@ button:active {
 }
 
 .add-score__form {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 40rem;
+  max-width: 38rem;
 }
 
 .add-score__form__label {

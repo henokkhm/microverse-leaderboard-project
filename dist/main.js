@@ -69,7 +69,7 @@ button:active {
 }
 
 .container {
-  max-width: 60rem;
+  width: 100%;
   min-width: 25rem;
   margin: 0 auto;
   padding: 0 1rem;
@@ -105,6 +105,7 @@ button:active {
 }
 
 .top-scores-section > .container {
+  width: 100%;
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -205,39 +206,66 @@ button:active {
 
 /* Recent Scores Section */
 .scores-section {
+  margin: 0 auto;
   order: 3;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 44rem;
-  width: 65vw;
+  width: 100%;
 }
 
 .scores__header {
+  max-width: 38rem;
+  margin: 0 auto;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  min-width: max-content;
 }
 
 .scores__title {
   font-size: 2rem;
 }
 
+.scores__refresh-btn {
+  width: 100%;
+}
+
 .scores__table {
-  border: 4px solid #000;
+  margin: 2rem auto 6rem auto;
+  max-width: 38rem;
 }
 
 .scores__table__row {
-  padding: 0.5rem;
+  padding: 0.75rem 0.5rem;
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
   font-weight: 600;
   font-size: 1.0625rem;
+  border-bottom: 1px solid var(--gray-400);
+  animation: slide-up 300ms ease-in;
 }
 
-.scores__table__row:nth-child(even) {
-  background-color: #ddd;
+.scores__table__row__rank {
+  font-weight: 400;
+}
+
+.scores__table__row__name {
+  margin-right: auto;
+  font-weight: 600;
+}
+
+.scores__table__row__score {
+  font-size: 1.5rem;
+}
+
+.scores__table__row__points-label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-left: -1rem;
 }
 
 /* Add Score Section */
@@ -256,10 +284,11 @@ button:active {
 }
 
 .add-score__form {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 40rem;
+  max-width: 38rem;
 }
 
 .add-score__form__label {
@@ -306,7 +335,7 @@ button:active {
     transform: translateY(0);
   }
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":["/* Custom Properties */\n:root {\n  /* Colors */\n  --primary-color-200: #a2e4ff;\n  --primary-color-300: #6bcdf4;\n  --primary-color-400: #3ebdef;\n  --primary-color-500: #00a2e2;\n  --primary-color-600: #02516f;\n  --white: #fff;\n  --black: #000;\n  --gray-300: #f4f9fb;\n  --gray-400: #d1dee4;\n  --gray-500: #a4b0b6;\n  --gray-600: #828a8d;\n  --gray-700: #464646;\n  --gray-800: #011016;\n\n  /* Fonts */\n  --font-poppins: 'Poppins', sans-serif;\n}\n\n/* General Styles */\nbody {\n  font-family: var(--font-poppins);\n  background-color: var(--gray-300);\n  color: var(--gray-700);\n}\n\nbutton {\n  background-color: var(--primary-color-500);\n  color: var(--white);\n  padding: 0.5rem 1.5rem;\n  border: 1px solid var(--primary-color-500);\n  border-radius: 0.25rem;\n  width: max-content;\n  font-size: 1.25rem;\n  transition: all 200ms ease-in-out;\n}\n\nbutton:hover {\n  background-color: var(--primary-color-400);\n}\n\nbutton:active {\n  transform: translateY(3px);\n}\n\n.container {\n  max-width: 60rem;\n  min-width: 25rem;\n  margin: 0 auto;\n  padding: 0 1rem;\n}\n\n/* Header Styles */\n\n.header {\n  padding: 3rem 0;\n  background-color: var(--primary-color-200);\n  text-align: center;\n}\n\n.page-title {\n  font-size: 3.25rem;\n}\n\n.main {\n  display: flex;\n  flex-direction: column;\n  gap: 5rem;\n}\n\n@media (min-width: 45rem) {\n  .main .container {\n    flex-direction: row;\n  }\n}\n\n/* Top Scores Section */\n.top-scores-section {\n  order: 1;\n}\n\n.top-scores-section > .container {\n  display: flex;\n  gap: 1rem;\n  justify-content: center;\n  background-color: var(--primary-color-200);\n  padding-top: 3rem;\n  overflow: hidden;\n  border-bottom-right-radius: 14%;\n  border-bottom-left-radius: 14%;\n}\n\n.top-score {\n  display: flex;\n  flex-direction: column;\n  gap: 0.5rem;\n  align-items: center;\n  width: 8rem;\n  padding: 1.25rem 0.75rem;\n  border-top-left-radius: 0.5rem;\n  border-top-right-radius: 0.5rem;\n  transform-origin: bottom;\n  animation: slide-up 500ms ease-in;\n}\n\n.top-score__rank {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 1.25rem;\n  background-color: var(--white);\n  width: 2rem;\n  height: 2rem;\n  padding: 0.5rem;\n  border-radius: 100%;\n  overflow: hidden;\n}\n\n.top-score__user {\n  text-align: center;\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: var(--gray-800);\n}\n\n.top-score__score {\n  font-weight: 600;\n  color: var(--white);\n}\n\n.top-score__first {\n  background-color: var(--primary-color-500);\n  order: 2;\n  height: 20rem;\n  transition: transform 0.3s ease-in-out;\n}\n\n.top-score__first:hover {\n  transform: scale(1.06);\n}\n\n.top-score__first > .top-score__score {\n  font-size: 2.25rem;\n}\n\n.top-score__second {\n  background-color: var(--primary-color-400);\n  margin-top: 3rem;\n  height: 17rem;\n  order: 1;\n  transition: transform 0.3s ease-in-out;\n  animation-delay: 50ms;\n}\n\n.top-score__second:hover {\n  transform: scale(1.04);\n}\n\n.top-score__second > .top-score__score {\n  font-size: 1.5rem;\n}\n\n.top-score__third {\n  background-color: var(--primary-color-300);\n  margin-top: 6rem;\n  height: 14rem;\n  order: 3;\n  transition: transform 0.3s ease-in-out;\n  animation-delay: 150ms;\n}\n\n.top-score__third:hover {\n  transform: scale(1.03);\n}\n\n.top-score__third > .top-score__score {\n  font-size: 1.5rem;\n}\n\n/* Recent Scores Section */\n.scores-section {\n  order: 3;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n  max-width: 44rem;\n  width: 65vw;\n}\n\n.scores__header {\n  display: flex;\n  justify-content: space-between;\n  gap: 1.5rem;\n  min-width: max-content;\n}\n\n.scores__title {\n  font-size: 2rem;\n}\n\n.scores__table {\n  border: 4px solid #000;\n}\n\n.scores__table__row {\n  padding: 0.5rem;\n  display: flex;\n  gap: 1rem;\n  font-weight: 600;\n  font-size: 1.0625rem;\n}\n\n.scores__table__row:nth-child(even) {\n  background-color: #ddd;\n}\n\n/* Add Score Section */\n\n.add-score-section {\n  order: 2;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.add-score__title {\n  font-size: 2rem;\n  text-align: center;\n  margin-bottom: 2rem;\n}\n\n.add-score__form {\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n  max-width: 40rem;\n}\n\n.add-score__form__label {\n  position: relative;\n  background-color: var(--gray-300);\n}\n\n.add-score__form__label > span {\n  position: absolute;\n  background-color: var(--gray-300);\n  padding: 0 0.5rem;\n  bottom: 0.5rem;\n  left: 0.5rem;\n  transition: transform 150ms ease-in;\n}\n\n.add-score__form__label > span.float-label {\n  transform: translateY(-1.5rem);\n}\n\n.add-score__form__input {\n  border: 1px solid var(--gray-700);\n  border-radius: 0.25rem;\n  padding: 0.5rem;\n  min-width: 15rem;\n  width: 100%;\n  background-color: var(--gray-300);\n}\n\n.add-score__form__btn {\n  width: 100%;\n}\n\n/* Animations */\n\n@keyframes slide-up {\n  0% {\n    opacity: 0;\n    transform: translateY(10em);\n  }\n\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":["/* Custom Properties */\n:root {\n  /* Colors */\n  --primary-color-200: #a2e4ff;\n  --primary-color-300: #6bcdf4;\n  --primary-color-400: #3ebdef;\n  --primary-color-500: #00a2e2;\n  --primary-color-600: #02516f;\n  --white: #fff;\n  --black: #000;\n  --gray-300: #f4f9fb;\n  --gray-400: #d1dee4;\n  --gray-500: #a4b0b6;\n  --gray-600: #828a8d;\n  --gray-700: #464646;\n  --gray-800: #011016;\n\n  /* Fonts */\n  --font-poppins: 'Poppins', sans-serif;\n}\n\n/* General Styles */\nbody {\n  font-family: var(--font-poppins);\n  background-color: var(--gray-300);\n  color: var(--gray-700);\n}\n\nbutton {\n  background-color: var(--primary-color-500);\n  color: var(--white);\n  padding: 0.5rem 1.5rem;\n  border: 1px solid var(--primary-color-500);\n  border-radius: 0.25rem;\n  width: max-content;\n  font-size: 1.25rem;\n  transition: all 200ms ease-in-out;\n}\n\nbutton:hover {\n  background-color: var(--primary-color-400);\n}\n\nbutton:active {\n  transform: translateY(3px);\n}\n\n.container {\n  width: 100%;\n  min-width: 25rem;\n  margin: 0 auto;\n  padding: 0 1rem;\n}\n\n/* Header Styles */\n\n.header {\n  padding: 3rem 0;\n  background-color: var(--primary-color-200);\n  text-align: center;\n}\n\n.page-title {\n  font-size: 3.25rem;\n}\n\n.main {\n  display: flex;\n  flex-direction: column;\n  gap: 5rem;\n}\n\n@media (min-width: 45rem) {\n  .main .container {\n    flex-direction: row;\n  }\n}\n\n/* Top Scores Section */\n.top-scores-section {\n  order: 1;\n}\n\n.top-scores-section > .container {\n  width: 100%;\n  display: flex;\n  gap: 1rem;\n  justify-content: center;\n  background-color: var(--primary-color-200);\n  padding-top: 3rem;\n  overflow: hidden;\n  border-bottom-right-radius: 14%;\n  border-bottom-left-radius: 14%;\n}\n\n.top-score {\n  display: flex;\n  flex-direction: column;\n  gap: 0.5rem;\n  align-items: center;\n  width: 8rem;\n  padding: 1.25rem 0.75rem;\n  border-top-left-radius: 0.5rem;\n  border-top-right-radius: 0.5rem;\n  transform-origin: bottom;\n  animation: slide-up 500ms ease-in;\n}\n\n.top-score__rank {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 1.25rem;\n  background-color: var(--white);\n  width: 2rem;\n  height: 2rem;\n  padding: 0.5rem;\n  border-radius: 100%;\n  overflow: hidden;\n}\n\n.top-score__user {\n  text-align: center;\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: var(--gray-800);\n}\n\n.top-score__score {\n  font-weight: 600;\n  color: var(--white);\n}\n\n.top-score__first {\n  background-color: var(--primary-color-500);\n  order: 2;\n  height: 20rem;\n  transition: transform 0.3s ease-in-out;\n}\n\n.top-score__first:hover {\n  transform: scale(1.06);\n}\n\n.top-score__first > .top-score__score {\n  font-size: 2.25rem;\n}\n\n.top-score__second {\n  background-color: var(--primary-color-400);\n  margin-top: 3rem;\n  height: 17rem;\n  order: 1;\n  transition: transform 0.3s ease-in-out;\n  animation-delay: 50ms;\n}\n\n.top-score__second:hover {\n  transform: scale(1.04);\n}\n\n.top-score__second > .top-score__score {\n  font-size: 1.5rem;\n}\n\n.top-score__third {\n  background-color: var(--primary-color-300);\n  margin-top: 6rem;\n  height: 14rem;\n  order: 3;\n  transition: transform 0.3s ease-in-out;\n  animation-delay: 150ms;\n}\n\n.top-score__third:hover {\n  transform: scale(1.03);\n}\n\n.top-score__third > .top-score__score {\n  font-size: 1.5rem;\n}\n\n/* Recent Scores Section */\n.scores-section {\n  margin: 0 auto;\n  order: 3;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n  width: 100%;\n}\n\n.scores__header {\n  max-width: 38rem;\n  margin: 0 auto;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  gap: 1.5rem;\n}\n\n.scores__title {\n  font-size: 2rem;\n}\n\n.scores__refresh-btn {\n  width: 100%;\n}\n\n.scores__table {\n  margin: 2rem auto 6rem auto;\n  max-width: 38rem;\n}\n\n.scores__table__row {\n  padding: 0.75rem 0.5rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 2rem;\n  font-weight: 600;\n  font-size: 1.0625rem;\n  border-bottom: 1px solid var(--gray-400);\n  animation: slide-up 300ms ease-in;\n}\n\n.scores__table__row__rank {\n  font-weight: 400;\n}\n\n.scores__table__row__name {\n  margin-right: auto;\n  font-weight: 600;\n}\n\n.scores__table__row__score {\n  font-size: 1.5rem;\n}\n\n.scores__table__row__points-label {\n  font-size: 0.75rem;\n  font-weight: 400;\n  margin-left: -1rem;\n}\n\n/* Add Score Section */\n\n.add-score-section {\n  order: 2;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.add-score__title {\n  font-size: 2rem;\n  text-align: center;\n  margin-bottom: 2rem;\n}\n\n.add-score__form {\n  margin: 0 auto;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n  max-width: 38rem;\n}\n\n.add-score__form__label {\n  position: relative;\n  background-color: var(--gray-300);\n}\n\n.add-score__form__label > span {\n  position: absolute;\n  background-color: var(--gray-300);\n  padding: 0 0.5rem;\n  bottom: 0.5rem;\n  left: 0.5rem;\n  transition: transform 150ms ease-in;\n}\n\n.add-score__form__label > span.float-label {\n  transform: translateY(-1.5rem);\n}\n\n.add-score__form__input {\n  border: 1px solid var(--gray-700);\n  border-radius: 0.25rem;\n  padding: 0.5rem;\n  min-width: 15rem;\n  width: 100%;\n  background-color: var(--gray-300);\n}\n\n.add-score__form__btn {\n  width: 100%;\n}\n\n/* Animations */\n\n@keyframes slide-up {\n  0% {\n    opacity: 0;\n    transform: translateY(10em);\n  }\n\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1085,15 +1114,22 @@ const renderScores = async () => {
     const name = document.createElement('span');
     name.classList.add('scores__table__row__name');
     name.innerText = scoreData.user;
-    row.appendChild(name);
     // 4. Create score span
     const score = document.createElement('span');
     score.classList.add('scores__table__row__score');
     score.innerText = scoreData.score;
-    // 5. Add name and score to row
+    // 5. Create points span
+    const points = document.createElement('span');
+    points.classList.add('scores__table__row__points-label');
+    points.innerText = 'Points';
+    // 6. Add name and score to row
+    row.appendChild(name);
     row.appendChild(score);
-    // 6. Add row to table
+    row.appendChild(points);
+    // 7. Add row to table
     scoresTable.appendChild(row);
+    // 8. Add staggered animation
+    row.style.animationDelay = `${20 * index}ms`;
   });
 };
 
