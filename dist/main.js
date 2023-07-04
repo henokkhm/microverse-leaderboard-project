@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/main.css":
@@ -8,6 +7,7 @@
   \*******************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -21,19 +21,47 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `body {
-  font-family: sans-serif;
+___CSS_LOADER_EXPORT___.push([module.id, `/* Custom Properties */
+:root {
+  /* Colors */
+  --primary-color-200: #a2e4ff;
+  --primary-color-300: #6bcdf4;
+  --primary-color-400: #3ebdef;
+  --primary-color-500: #00a2e2;
+  --primary-color-600: #02516f;
+  --white: #fff;
+  --black: #000;
+  --gray-300: #f4f9fb;
+  --gray-400: #d1dee4;
+  --gray-500: #a4b0b6;
+  --gray-600: #828a8d;
+  --gray-700: #464646;
+  --gray-800: #011016;
+
+  /* Fonts */
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+/* General Styles */
+body {
+  font-family: var(--font-poppins);
+  background-color: var(--gray-300);
+  color: var(--gray-700);
 }
 
 button {
-  background-color: rgb(246, 250, 253);
-  padding: 0.25rem 1rem;
-  border: 4px solid #000;
-  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1);
+  background-color: var(--primary-color-500);
+  color: var(--white);
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--primary-color-500);
+  border-radius: 0.25rem;
   width: max-content;
-  font-weight: 900;
-  font-size: 18px;
+  font-size: 1.25rem;
   transition: all 200ms ease-in-out;
+}
+
+button:hover {
+  background-color: var(--primary-color-400);
 }
 
 button:active {
@@ -41,64 +69,203 @@ button:active {
 }
 
 .container {
-  max-width: 60rem;
+  width: 100%;
+  min-width: 25rem;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
+/* Header Styles */
+
 .header {
-  padding: 2rem 0;
+  padding: 3rem 0;
+  background-color: var(--primary-color-200);
+  text-align: center;
 }
 
 .page-title {
-  font-size: 4rem;
+  font-size: 3.25rem;
 }
 
-.main .container {
+.main {
   display: flex;
-  gap: 4rem;
+  flex-direction: column;
+  gap: 5rem;
 }
 
+/* Top Scores Section */
+.top-scores-section {
+  order: 1;
+}
+
+.top-scores-section > .container {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  background-color: var(--primary-color-200);
+  padding-top: 3rem;
+  overflow: hidden;
+  border-bottom-right-radius: 14%;
+  border-bottom-left-radius: 14%;
+}
+
+.top-score {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  width: 8rem;
+  padding: 1.25rem 0.75rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  transform-origin: bottom;
+  animation: slide-up 500ms ease-in;
+}
+
+.top-score__rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.25rem;
+  background-color: var(--white);
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.top-score__user {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--gray-800);
+}
+
+.top-score__score {
+  font-weight: 600;
+  color: var(--white);
+}
+
+.top-score__first {
+  background-color: var(--primary-color-500);
+  order: 2;
+  height: 20rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.top-score__first:hover {
+  transform: scale(1.06);
+}
+
+.top-score__first > .top-score__score {
+  font-size: 2.25rem;
+}
+
+.top-score__second {
+  background-color: var(--primary-color-400);
+  margin-top: 3rem;
+  height: 17rem;
+  order: 1;
+  transition: transform 0.3s ease-in-out;
+  animation-delay: 50ms;
+}
+
+.top-score__second:hover {
+  transform: scale(1.04);
+}
+
+.top-score__second > .top-score__score {
+  font-size: 1.5rem;
+}
+
+.top-score__third {
+  background-color: var(--primary-color-300);
+  margin-top: 6rem;
+  height: 14rem;
+  order: 3;
+  transition: transform 0.3s ease-in-out;
+  animation-delay: 150ms;
+}
+
+.top-score__third:hover {
+  transform: scale(1.03);
+}
+
+.top-score__third > .top-score__score {
+  font-size: 1.5rem;
+}
+
+/* Recent Scores Section */
 .scores-section {
+  margin: 0 auto;
+  order: 3;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 44rem;
-  width: 65vw;
+  width: 100%;
 }
 
 .scores__header {
+  max-width: 38rem;
+  margin: 0 auto;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  min-width: max-content;
 }
 
 .scores__title {
   font-size: 2rem;
 }
 
-.scores__refresh-btn:hover {
-  background-color: rgb(251, 180, 110);
+.scores__refresh-btn {
+  width: 100%;
 }
 
 .scores__table {
-  border: 4px solid #000;
+  margin: 2rem auto 6rem auto;
+  max-width: 38rem;
 }
 
 .scores__table__row {
-  padding: 0.5rem;
+  padding: 0.75rem 0.5rem;
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
   font-weight: 600;
   font-size: 1.0625rem;
+  border-bottom: 1px solid var(--gray-400);
+  animation: slide-up 300ms ease-in;
 }
 
-.scores__table__row:nth-child(even) {
-  background-color: #ddd;
+.scores__table__row__rank {
+  font-weight: 400;
 }
+
+.scores__table__row__name {
+  margin-right: auto;
+  font-weight: 600;
+}
+
+.scores__table__row__score {
+  font-size: 1.5rem;
+}
+
+.scores__table__row__points-label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-left: -1rem;
+}
+
+/* Add Score Section */
 
 .add-score-section {
+  order: 2;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -106,32 +273,104 @@ button:active {
 
 .add-score__title {
   font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 38rem;
 }
 
 .add-score__form {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 40rem;
+  gap: 2rem;
+  max-width: 38rem;
 }
 
 .add-score__form__label {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 0.25rem;
-  background-color: #fff;
+  position: relative;
+  background-color: var(--gray-300);
+}
+
+.add-score__form__label > span {
+  position: absolute;
+  background-color: var(--gray-300);
+  padding: 0 0.5rem;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  transition: transform 150ms ease-in;
+}
+
+.add-score__form__label > span.float-label {
+  transform: translateY(-1.5rem);
 }
 
 .add-score__form__input {
-  border: 4px solid #000;
+  border: 1px solid var(--gray-700);
+  border-radius: 0.25rem;
   padding: 0.5rem;
-  min-width: 20rem;
+  min-width: 15rem;
+  width: 100%;
+  background-color: var(--gray-300);
 }
 
-.add-score__form__btn:hover {
-  background-color: rgb(135, 237, 121);
+.add-score__form__btn {
+  width: 100%;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;EACE,uBAAuB;AACzB;;AAEA;EACE,oCAAoC;EACpC,qBAAqB;EACrB,sBAAsB;EACtB,wCAAwC;EACxC,kBAAkB;EAClB,gBAAgB;EAChB,eAAe;EACf,iCAAiC;AACnC;;AAEA;EACE,0BAA0B;AAC5B;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,SAAS;AACX;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,gBAAgB;EAChB,WAAW;AACb;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,WAAW;EACX,sBAAsB;AACxB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,oCAAoC;AACtC;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,eAAe;EACf,aAAa;EACb,SAAS;EACT,gBAAgB;EAChB,oBAAoB;AACtB;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,YAAY;EACZ,sBAAsB;AACxB;;AAEA;EACE,sBAAsB;EACtB,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,oCAAoC;AACtC","sourcesContent":["body {\n  font-family: sans-serif;\n}\n\nbutton {\n  background-color: rgb(246, 250, 253);\n  padding: 0.25rem 1rem;\n  border: 4px solid #000;\n  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 1);\n  width: max-content;\n  font-weight: 900;\n  font-size: 18px;\n  transition: all 200ms ease-in-out;\n}\n\nbutton:active {\n  transform: translateY(3px);\n}\n\n.container {\n  max-width: 60rem;\n  margin: 0 auto;\n  padding: 0 1rem;\n}\n\n.header {\n  padding: 2rem 0;\n}\n\n.page-title {\n  font-size: 4rem;\n}\n\n.main .container {\n  display: flex;\n  gap: 4rem;\n}\n\n.scores-section {\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n  max-width: 44rem;\n  width: 65vw;\n}\n\n.scores__header {\n  display: flex;\n  justify-content: space-between;\n  gap: 1.5rem;\n  min-width: max-content;\n}\n\n.scores__title {\n  font-size: 2rem;\n}\n\n.scores__refresh-btn:hover {\n  background-color: rgb(251, 180, 110);\n}\n\n.scores__table {\n  border: 4px solid #000;\n}\n\n.scores__table__row {\n  padding: 0.5rem;\n  display: flex;\n  gap: 1rem;\n  font-weight: 600;\n  font-size: 1.0625rem;\n}\n\n.scores__table__row:nth-child(even) {\n  background-color: #ddd;\n}\n\n.add-score-section {\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.add-score__title {\n  font-size: 2rem;\n}\n\n.add-score__form {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  max-width: 40rem;\n}\n\n.add-score__form__label {\n  display: flex;\n  flex-direction: column-reverse;\n  gap: 0.25rem;\n  background-color: #fff;\n}\n\n.add-score__form__input {\n  border: 4px solid #000;\n  padding: 0.5rem;\n  min-width: 20rem;\n}\n\n.add-score__form__btn:hover {\n  background-color: rgb(135, 237, 121);\n}\n"],"sourceRoot":""}]);
+
+/* Animations */
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10em);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 52rem) {
+  .main {
+    display: grid;
+    column-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 320px auto;
+  }
+
+  .top-scores-section {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+  }
+
+  .scores-section {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    align-self: end;
+  }
+
+  .scores__header,
+  .scores__table {
+    margin-right: 1rem;
+  }
+
+  .add-score-section {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+  }
+
+  .add-score__title,
+  .add-score__form {
+    margin-left: 1rem;
+  }
+
+  .top-scores-section > .container {
+    border-radius: 0;
+  }
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":["/* Custom Properties */\n:root {\n  /* Colors */\n  --primary-color-200: #a2e4ff;\n  --primary-color-300: #6bcdf4;\n  --primary-color-400: #3ebdef;\n  --primary-color-500: #00a2e2;\n  --primary-color-600: #02516f;\n  --white: #fff;\n  --black: #000;\n  --gray-300: #f4f9fb;\n  --gray-400: #d1dee4;\n  --gray-500: #a4b0b6;\n  --gray-600: #828a8d;\n  --gray-700: #464646;\n  --gray-800: #011016;\n\n  /* Fonts */\n  --font-poppins: 'Poppins', sans-serif;\n}\n\n/* General Styles */\nbody {\n  font-family: var(--font-poppins);\n  background-color: var(--gray-300);\n  color: var(--gray-700);\n}\n\nbutton {\n  background-color: var(--primary-color-500);\n  color: var(--white);\n  padding: 0.5rem 1.5rem;\n  border: 1px solid var(--primary-color-500);\n  border-radius: 0.25rem;\n  width: max-content;\n  font-size: 1.25rem;\n  transition: all 200ms ease-in-out;\n}\n\nbutton:hover {\n  background-color: var(--primary-color-400);\n}\n\nbutton:active {\n  transform: translateY(3px);\n}\n\n.container {\n  width: 100%;\n  min-width: 25rem;\n  margin: 0 auto;\n  padding: 0 1rem;\n}\n\n/* Header Styles */\n\n.header {\n  padding: 3rem 0;\n  background-color: var(--primary-color-200);\n  text-align: center;\n}\n\n.page-title {\n  font-size: 3.25rem;\n}\n\n.main {\n  display: flex;\n  flex-direction: column;\n  gap: 5rem;\n}\n\n/* Top Scores Section */\n.top-scores-section {\n  order: 1;\n}\n\n.top-scores-section > .container {\n  width: 100%;\n  display: flex;\n  gap: 1rem;\n  justify-content: center;\n  background-color: var(--primary-color-200);\n  padding-top: 3rem;\n  overflow: hidden;\n  border-bottom-right-radius: 14%;\n  border-bottom-left-radius: 14%;\n}\n\n.top-score {\n  display: flex;\n  flex-direction: column;\n  gap: 0.5rem;\n  align-items: center;\n  width: 8rem;\n  padding: 1.25rem 0.75rem;\n  border-top-left-radius: 0.5rem;\n  border-top-right-radius: 0.5rem;\n  transform-origin: bottom;\n  animation: slide-up 500ms ease-in;\n}\n\n.top-score__rank {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 1.25rem;\n  background-color: var(--white);\n  width: 2rem;\n  height: 2rem;\n  padding: 0.5rem;\n  border-radius: 100%;\n  overflow: hidden;\n}\n\n.top-score__user {\n  text-align: center;\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: var(--gray-800);\n}\n\n.top-score__score {\n  font-weight: 600;\n  color: var(--white);\n}\n\n.top-score__first {\n  background-color: var(--primary-color-500);\n  order: 2;\n  height: 20rem;\n  transition: transform 0.3s ease-in-out;\n}\n\n.top-score__first:hover {\n  transform: scale(1.06);\n}\n\n.top-score__first > .top-score__score {\n  font-size: 2.25rem;\n}\n\n.top-score__second {\n  background-color: var(--primary-color-400);\n  margin-top: 3rem;\n  height: 17rem;\n  order: 1;\n  transition: transform 0.3s ease-in-out;\n  animation-delay: 50ms;\n}\n\n.top-score__second:hover {\n  transform: scale(1.04);\n}\n\n.top-score__second > .top-score__score {\n  font-size: 1.5rem;\n}\n\n.top-score__third {\n  background-color: var(--primary-color-300);\n  margin-top: 6rem;\n  height: 14rem;\n  order: 3;\n  transition: transform 0.3s ease-in-out;\n  animation-delay: 150ms;\n}\n\n.top-score__third:hover {\n  transform: scale(1.03);\n}\n\n.top-score__third > .top-score__score {\n  font-size: 1.5rem;\n}\n\n/* Recent Scores Section */\n.scores-section {\n  margin: 0 auto;\n  order: 3;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n  width: 100%;\n}\n\n.scores__header {\n  max-width: 38rem;\n  margin: 0 auto;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  gap: 1.5rem;\n}\n\n.scores__title {\n  font-size: 2rem;\n}\n\n.scores__refresh-btn {\n  width: 100%;\n}\n\n.scores__table {\n  margin: 2rem auto 6rem auto;\n  max-width: 38rem;\n}\n\n.scores__table__row {\n  padding: 0.75rem 0.5rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 2rem;\n  font-weight: 600;\n  font-size: 1.0625rem;\n  border-bottom: 1px solid var(--gray-400);\n  animation: slide-up 300ms ease-in;\n}\n\n.scores__table__row__rank {\n  font-weight: 400;\n}\n\n.scores__table__row__name {\n  margin-right: auto;\n  font-weight: 600;\n}\n\n.scores__table__row__score {\n  font-size: 1.5rem;\n}\n\n.scores__table__row__points-label {\n  font-size: 0.75rem;\n  font-weight: 400;\n  margin-left: -1rem;\n}\n\n/* Add Score Section */\n\n.add-score-section {\n  order: 2;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.add-score__title {\n  font-size: 2rem;\n  text-align: center;\n  margin-bottom: 2rem;\n  max-width: 38rem;\n}\n\n.add-score__form {\n  margin: 0 auto;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n  max-width: 38rem;\n}\n\n.add-score__form__label {\n  position: relative;\n  background-color: var(--gray-300);\n}\n\n.add-score__form__label > span {\n  position: absolute;\n  background-color: var(--gray-300);\n  padding: 0 0.5rem;\n  bottom: 0.5rem;\n  left: 0.5rem;\n  transition: transform 150ms ease-in;\n}\n\n.add-score__form__label > span.float-label {\n  transform: translateY(-1.5rem);\n}\n\n.add-score__form__input {\n  border: 1px solid var(--gray-700);\n  border-radius: 0.25rem;\n  padding: 0.5rem;\n  min-width: 15rem;\n  width: 100%;\n  background-color: var(--gray-300);\n}\n\n.add-score__form__btn {\n  width: 100%;\n}\n\n/* Animations */\n\n@keyframes slide-up {\n  0% {\n    opacity: 0;\n    transform: translateY(10em);\n  }\n\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n/* Desktop Styles */\n@media (min-width: 52rem) {\n  .main {\n    display: grid;\n    column-gap: 1rem;\n    grid-template-columns: 1fr 1fr;\n    grid-template-rows: 320px auto;\n  }\n\n  .top-scores-section {\n    grid-row: 1 / 2;\n    grid-column: 1 / 3;\n  }\n\n  .scores-section {\n    grid-row: 2 / 3;\n    grid-column: 1 / 2;\n    align-self: end;\n  }\n\n  .scores__header,\n  .scores__table {\n    margin-right: 1rem;\n  }\n\n  .add-score-section {\n    grid-row: 2 / 3;\n    grid-column: 2 / 3;\n  }\n\n  .add-score__title,\n  .add-score__form {\n    margin-left: 1rem;\n  }\n\n  .top-scores-section > .container {\n    border-radius: 0;\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -144,6 +383,7 @@ button:active {
   \********************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -247,6 +487,7 @@ select {
   \*****************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /*
@@ -341,6 +582,7 @@ module.exports = function (cssWithMappingToString) {
   \************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 module.exports = function (item) {
@@ -366,6 +608,7 @@ module.exports = function (item) {
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -420,6 +663,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -474,6 +718,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \****************************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 var stylesInDOM = [];
@@ -567,6 +812,7 @@ module.exports = function (list, options) {
   \********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 var memo = {};
@@ -610,6 +856,7 @@ module.exports = insertBySelector;
   \**********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -629,6 +876,7 @@ module.exports = insertStyleElement;
   \**********************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -648,6 +896,7 @@ module.exports = setAttributesWithoutAttributes;
   \***************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -718,6 +967,7 @@ module.exports = domAPI;
   \*********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -741,6 +991,7 @@ module.exports = styleTagTransform;
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   fetchScores: () => (/* binding */ fetchScores),
@@ -791,12 +1042,38 @@ const postSingleScore = async ({ user, score }) => {
 
 /***/ }),
 
+/***/ "./src/modules/floating-labels.js":
+/*!****************************************!*\
+  !*** ./src/modules/floating-labels.js ***!
+  \****************************************/
+/***/ (() => {
+
+const inputs = document.querySelectorAll('.add-score__form__input');
+
+inputs.forEach((input) => {
+  input.addEventListener('focus', (e) => {
+    const span = e.target.nextElementSibling;
+    span.classList.add('float-label');
+  });
+
+  input.addEventListener('blur', (e) => {
+    if (e.target.value.trim() === '') {
+      const span = e.target.nextElementSibling;
+      span.classList.remove('float-label');
+    }
+  });
+});
+
+
+/***/ }),
+
 /***/ "./src/modules/render-scores.js":
 /*!**************************************!*\
   !*** ./src/modules/render-scores.js ***!
   \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -805,8 +1082,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const renderScores = async () => {
-  const scoresTable = document.querySelector('#scores__table');
-  scoresTable.innerHTML = '';
+  // Fetch scores from API
   const latestScores = await (0,_api_requests_js__WEBPACK_IMPORTED_MODULE_0__.fetchScores)();
 
   // The scores returned by the API are not in sorted order, so we sort them
@@ -816,25 +1092,79 @@ const renderScores = async () => {
       user,
       score: parseInt(score, 10),
     }))
-    .sort((a, b) => a.score - b.score);
+    .sort((a, b) => b.score - a.score);
 
-  sortedScores.forEach((score) => {
+  // Render top three scores to "Top Scores" section
+  const topThreeScores = sortedScores.slice(0, 3);
+  const topScoresTarget = document.querySelector('#top-scores-container');
+  topScoresTarget.innerHTML = '';
+
+  topThreeScores.forEach((scoreData, index) => {
+    // 1. Create vertical bar div
+    const bar = document.createElement('div');
+    bar.classList.add('top-score');
+    // 2. Set class depending on score rank
+    if (index === 0) {
+      bar.classList.add('top-score__first');
+    }
+    if (index === 1) {
+      bar.classList.add('top-score__second');
+    }
+    if (index === 2) {
+      bar.classList.add('top-score__third');
+    }
+    // 3. Create rank span
+    const rank = document.createElement('span');
+    rank.classList.add('top-score__rank');
+    rank.innerText = index + 1;
+    bar.appendChild(rank);
+    // 4. Create name span
+    const user = document.createElement('span');
+    user.classList.add('top-score__user');
+    user.innerText = scoreData.user;
+    bar.appendChild(user);
+    // 5. Create score span
+    const score = document.createElement('span');
+    score.classList.add('top-score__score');
+    score.innerText = scoreData.score;
+    bar.appendChild(score);
+    // 4. Add bar to container
+    topScoresTarget.appendChild(bar);
+  });
+
+  // Render all scrores to "Recent Scores" section
+  const scoresTable = document.querySelector('#scores__table');
+  scoresTable.innerHTML = '';
+
+  sortedScores.forEach((scoreData, index) => {
     // 1. Create row div
     const row = document.createElement('div');
     row.classList.add('scores__table__row');
-    // 2. Create name span
-    const nameSpan = document.createElement('span');
-    nameSpan.classList.add('scores__table__row__name');
-    nameSpan.innerText = score.user;
-    row.appendChild(nameSpan);
-    // 3. Create score span
-    const scoreSpan = document.createElement('span');
-    scoreSpan.classList.add('scores__table__row__score');
-    scoreSpan.innerText = score.score;
-    // 4. Add name and score to row
-    row.appendChild(scoreSpan);
-    // 5. Add row to table
+    // 2. Create rank span
+    const rank = document.createElement('span');
+    rank.classList.add('scores__table__row__rank');
+    rank.innerText = index + 1;
+    row.appendChild(rank);
+    // 3. Create name span
+    const name = document.createElement('span');
+    name.classList.add('scores__table__row__name');
+    name.innerText = scoreData.user;
+    // 4. Create score span
+    const score = document.createElement('span');
+    score.classList.add('scores__table__row__score');
+    score.innerText = scoreData.score;
+    // 5. Create points span
+    const points = document.createElement('span');
+    points.classList.add('scores__table__row__points-label');
+    points.innerText = 'Points';
+    // 6. Add name and score to row
+    row.appendChild(name);
+    row.appendChild(score);
+    row.appendChild(points);
+    // 7. Add row to table
     scoresTable.appendChild(row);
+    // 8. Add staggered animation
+    row.style.animationDelay = `${20 * index}ms`;
   });
 };
 
@@ -917,8 +1247,9 @@ const renderScores = async () => {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
@@ -927,6 +1258,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
 /* harmony import */ var _modules_render_scores_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/render-scores.js */ "./src/modules/render-scores.js");
 /* harmony import */ var _modules_api_requests_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/api-requests.js */ "./src/modules/api-requests.js");
+/* harmony import */ var _modules_floating_labels_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/floating-labels.js */ "./src/modules/floating-labels.js");
+/* harmony import */ var _modules_floating_labels_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_floating_labels_js__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
